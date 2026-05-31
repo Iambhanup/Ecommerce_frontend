@@ -1,0 +1,76 @@
+{
+  "users": [
+    {
+      "id": "admin-1",
+      "name": "Admin User",
+      "email": "admin@store.com",
+      "phone": "9999999999",
+      "address": "Admin HQ",
+      "role": "admin",
+      "passwordHash": "$2a$08$K/7Z4o5s8i5El9n4M6N6OepipONoz7u8aEJpwWCG4PFx0RuY/MM4S",
+      "addresses": [
+        {
+          "id": "addr-1",
+          "label": "Primary",
+          "address": "Admin HQ"
+        }
+      ]
+    }
+  ],
+  "categories": [
+    { "id": "cat-1", "name": "E-Book" },
+    { "id": "cat-2", "name": "Design" },
+    { "id": "cat-3", "name": "Template" },
+    { "id": "cat-4", "name": "Audio" },
+    { "id": "cat-5", "name": "Marketing" }
+  ],
+  "products": [
+    {
+      "id": "p1",
+      "name": "E-Book Starter Guide",
+      "description": "Learn the essentials of building digital products and selling them online.",
+      "price": 19.99,
+      "category": "E-Book",
+      "stock": 100,
+      "image": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": "p2",
+      "name": "Premium Icon Pack",
+      "description": "A collection of 120 modern icons for apps, websites, and marketing.",
+      "price": 14.99,
+      "category": "Design",
+      "stock": 80,
+      "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": "p3",
+      "name": "Productivity App Template",
+      "description": "A starter UI kit for task management apps with reusable components.",
+      "price": 29.99,
+      "category": "Template",
+      "stock": 60,
+      "image": "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": "p4",
+      "name": "Audio Sample Bundle",
+      "description": "Royalty-free audio loops and sound design assets for creators.",
+      "price": 24.99,
+      "category": "Audio",
+      "stock": 120,
+      "image": "https://images.unsplash.com/photo-1511376777868-611b54f68947?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": "p5",
+      "name": "Social Media Strategy Toolkit",
+      "description": "Editable planning templates and content calendars for brands.",
+      "price": 12.99,
+      "category": "Marketing",
+      "stock": 54,
+      "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80"
+    }
+  ],
+  "carts": {},
+  "orders": []
+}
