@@ -327,7 +327,7 @@ function App() {
         window.localStorage.setItem('digitalStoreUser', JSON.stringify(mergedUser));
       }
 
-      await placeOrder(token);
+      await placeOrder(token, paymentMethod);
       await loadShopData();
       setCheckoutMessage('Thank you! Your digital products are ready to download.');
       navigate('orders', 'signin');
@@ -520,71 +520,6 @@ function App() {
           </div>
         </div>
         <div className="header-actions">
-          <div className="dashboard-nav">
-            <button className={page === 'store' ? 'nav-button active' : 'nav-button'} onClick={() => navigate('store', 'signin')}>
-              Store
-            </button>
-            <button className={page === 'orders' ? 'nav-button active' : 'nav-button'} onClick={() => navigate('orders', 'signin')}>
-              Orders
-            </button>
-            {user?.role === 'admin' && (
-              <button className={page === 'admin' ? 'nav-button active' : 'nav-button'} onClick={() => navigate('admin', 'signin')}>
-                Admin
-              </button>
-            )}
-          </div>
-          <div className="profile-menu">
-            <button
-              type="button"
-              className="profile-button"
-              onClick={() => setProfileOpen((open) => !open)}
-            >
-              <span className="profile-icon">👤</span>
-              <span className="profile-button-label">Profile</span>
-            </button>
-            {profileOpen && (
-              <div className="profile-popup">
-                <div className="profile-popup-header">
-                  <span className="profile-popup-title">Profile details</span>
-                  <button
-                    type="button"
-                    className="profile-close"
-                    onClick={() => setProfileOpen(false)}
-                  >
-                    ×
-                  </button>
-                </div>
-                <div className="profile-field">
-                  <span>Name</span>
-                  <strong>{user.name}</strong>
-                </div>
-                <div className="profile-field">
-                  <span>Email</span>
-                  <strong>{user.email}</strong>
-                </div>
-                <div className="profile-field">
-                  <span>Phone</span>
-                  <strong>{user.phone || 'N/A'}</strong>
-                </div>
-                <div className="profile-field">
-                  <span>Address</span>
-                  <strong>{user.address || 'N/A'}</strong>
-                </div>
-                {user.cardNumber && (
-                  <div className="profile-field">
-                    <span>Saved Card</span>
-                    <strong>
-                      {user.cardNumber.replace(/\s/g, '').replace(/\d(?=\d{4})/g, '*')}
-                      {user.cardExpiry ? ` (${user.cardExpiry})` : ''}
-                    </strong>
-                  </div>
-                )}
-              </div>
-            )}
-          </div>
-          <button className="logout-button" onClick={handleLogout}>
-            Logout
-          </button>
           <div className="search-box">
             <label htmlFor="search">Search products</label>
             <input
@@ -594,6 +529,73 @@ function App() {
               onChange={(event) => setSearchTerm(event.target.value)}
               placeholder="Search by name, category, or feature"
             />
+          </div>
+          <div className="header-buttons">
+            <div className="dashboard-nav">
+              <button className={page === 'store' ? 'nav-button active' : 'nav-button'} onClick={() => navigate('store', 'signin')}>
+                Store
+              </button>
+              <button className={page === 'orders' ? 'nav-button active' : 'nav-button'} onClick={() => navigate('orders', 'signin')}>
+                Orders
+              </button>
+              {user?.role === 'admin' && (
+                <button className={page === 'admin' ? 'nav-button active' : 'nav-button'} onClick={() => navigate('admin', 'signin')}>
+                  Admin
+                </button>
+              )}
+            </div>
+            <div className="profile-menu">
+              <button
+                type="button"
+                className="profile-button"
+                onClick={() => setProfileOpen((open) => !open)}
+              >
+                <span className="profile-icon">👤</span>
+                <span className="profile-button-label">Profile</span>
+              </button>
+              {profileOpen && (
+                <div className="profile-popup">
+                  <div className="profile-popup-header">
+                    <span className="profile-popup-title">Profile details</span>
+                    <button
+                      type="button"
+                      className="profile-close"
+                      onClick={() => setProfileOpen(false)}
+                    >
+                      ×
+                    </button>
+                  </div>
+                  <div className="profile-field">
+                    <span>Name</span>
+                    <strong>{user.name}</strong>
+                  </div>
+                  <div className="profile-field">
+                    <span>Email</span>
+                    <strong>{user.email}</strong>
+                  </div>
+                  <div className="profile-field">
+                    <span>Phone</span>
+                    <strong>{user.phone || 'N/A'}</strong>
+                  </div>
+                  <div className="profile-field">
+                    <span>Address</span>
+                    <strong>{user.address || 'N/A'}</strong>
+                  </div>
+                  {user.cardNumber && (
+                    <div className="profile-field">
+                      <span>Saved Card</span>
+                      <strong>
+                        {user.cardNumber.replace(/\s/g, '').replace(/\d(?=\d{4})/g, '*')}
+                        {user.cardExpiry ? ` (${user.cardExpiry})` : ''}
+                      </strong>
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+            <button className="logout-button" onClick={handleLogout}>
+              Logout
+            </button>
           </div>
         </div>
       </header>

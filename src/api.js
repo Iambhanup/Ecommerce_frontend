@@ -71,10 +71,14 @@ export const updateCartItem = (token, productId, quantity) =>
     body: JSON.stringify({ quantity }),
   });
 
-export const placeOrder = (token) =>
+export const placeOrder = (token, paymentMethod) =>
   request('/api/orders', {
     method: 'POST',
-    headers: { Authorization: `Bearer ${token}` },
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`
+    },
+    body: JSON.stringify({ paymentMethod }),
   });
 
 export const fetchOrders = (token) =>
